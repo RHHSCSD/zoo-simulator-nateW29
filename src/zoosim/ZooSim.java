@@ -14,7 +14,11 @@ public class ZooSim {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //String[] animalArr = {"Lion", "Tiger", "Eagle", "Snake", "Butterfly", "Bat", "Seal", "Dolphin",};
+        Animal[] a = new Animal[10];
+        
+        a[0] = new Animal(340851005, "George", "tortoise", 2, 3, 5, 6, "Slow", 90.0, 2, 3, "croak");
+        
     }
     
 }
