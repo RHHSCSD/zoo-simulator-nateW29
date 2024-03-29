@@ -25,8 +25,10 @@ public class Animal implements IEntity{
     private int fatigue;
     private Image image;
     private String sound;
+    private String[] speedDesc = {"not moving", "slow", "medium", "fast", "very fast"};
+
     
-    public Animal (int iD, String name, String species, int age, int positionX, int positionY, int size, String speed, double direction, int hunger, int fatigue, String Sound){
+    public Animal (int iD, String name, String species, int age, char sex, int positionX, int positionY, int size, int speed, double direction, int hunger, int fatigue, String Sound){
         this.iD = iD;
         this.name = name;
         this.species = species;
@@ -34,7 +36,31 @@ public class Animal implements IEntity{
         this.positionX = positionX;
         this.positionY = positionY;
         this.size=size;
+        this.speed = speed;
+        this.sex=sex;
         
+    }
+
+    public int getiD() {
+        return iD;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+    
+    
+    public String getSpeed(){
+        if (speed >= 0 && speed <= speedDesc.length){
+            return speedDesc[speed];
+        }
+        else{
+           return "Unknown speed"; 
+        }
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public String getName() {
@@ -64,7 +90,7 @@ public class Animal implements IEntity{
     }
     
     public void move(){
-        System.out.println(name + " is moving " + speed);
+        System.out.println(name + " is " + getSpeed());
         incFatigue(2);
         incHunger(2);
         checkFatigue();
@@ -117,4 +143,44 @@ public class Animal implements IEntity{
             System.out.println(name + " the " + species + " is getting hungry.");
         }
     }
+    
+    public static void feedAll(Animal[] animals){
+        for (Animal animal : animals) {
+            if (animal != null && animal.getHunger() > 0) {
+                animal.eat();
+            }
+        }
+        
+    }
+    
+    public static void sleepAll(Animal[] animals){
+        for (Animal animal : animals) {
+            if (animal != null && animal.getFatigue() > 0) {
+                animal.eat();
+            }
+        }
+        
+    }
+    
+    public static void moveAll(Animal[] animals) {
+        for (Animal animal : animals) {
+            if (animal != null) {
+                animal.move();
+            }
+        }
+    }
+    
+    public static void displayStat(Animal[] animals) {
+        System.out.println("Zoo Statistics:");
+
+        // Display statistics for each animal
+        for (Animal animal : animals) {
+            System.out.println(animal.getName() + " the " + animal.getSpecies() +
+                    " - Age: " + animal.getAge() +
+                    ", Hunger: " + animal.getHunger() +
+                    ", Fatigue: " + animal.getFatigue() +
+                    ", Speed:  " + animal.getSpeed() + ", ID #:  " + animal.getiD() + ", Sex:  " + animal.getSex());
+        }
+    }
+
 }

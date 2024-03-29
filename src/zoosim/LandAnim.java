@@ -10,8 +10,8 @@ package zoosim;
  */
 public class LandAnim extends Animal{
     
-    public LandAnim(int iD, String name, String species, int age, int positionX, int positionY, int size, String speed, double direction, int hunger, int fatigue, String Sound) {
-        super(iD, name, species, age, positionX, positionY, size, speed, direction, hunger, fatigue, Sound);
+    public LandAnim(int iD, String name, String species, int age, char sex, int positionX, int positionY, int size, int speed, double direction, int hunger, int fatigue, String Sound) {
+        super(iD, name, species, age, sex , positionX, positionY, size, speed, direction, hunger, fatigue, Sound);
     }
     
 }
