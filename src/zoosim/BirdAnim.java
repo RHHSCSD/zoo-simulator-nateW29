@@ -16,16 +16,28 @@ public class BirdAnim extends Animal implements IFlyable{
         this.isFly = isFly;
     }
    
+    /**
+     * Makes the bird fly.
+     */
+
     @Override
     public void fly() {
         System.out.println(getName() + " the " + getSpecies() + " has started flying.");
     }
 
+    /**
+     * Makes the bird land.
+     */
     @Override
     public void land() {
         System.out.println(getName() + " the " + getSpecies() + " has landed.");
     }
 
+    /**
+     * Checks if the bird can fly.
+     * 
+     * @return true if the bird can fly, otherwise false.
+     */
     @Override
     public boolean canFly(){
        return isFly; 

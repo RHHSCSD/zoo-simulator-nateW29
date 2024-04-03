@@ -12,12 +12,14 @@ import static zoosim.Animal.sleepAll;
 
 /**
  *
- * @author michael.roy-diclemen
+ * @author Nate
  */
 public class ZooSim {
 
     /**
-     * @param args the command line arguments
+     * 
+     * @param: animal objects
+     * @return: methods depending on whats called
      */
     public static void main(String[] args) {
         //String[] animalArr = {int iD, String name, String species, int age, int positionX, int positionY, int size, String speed, double direction, int hunger, int fatigue, String Sound};
@@ -56,5 +58,19 @@ public class ZooSim {
 
 
         displayStat(water);
+        
+        /**
+         * How would you modify this structure to allow for predator/prey interactions and Carnivores/Omnivores/Herbivores?
+         * The class structure would need to be changed in order to incorporate predator/prey interactions and classify animals into 
+         * Carnivores, Omnivores, and Herbivores based on their diets. Additional variables like dietType might be added to the Animal 
+         * superclass in order to categorize animals according to their food choices, yet the Animal superclass would still contain traits 
+         * and behaviors that are shared by all animals. The Animal class would be extended with subclasses like Carnivore, Omnivore, 
+         * and Herbivore, which would perform actions unique to diets while inheriting common traits and behaviors. A herbivore subclass 
+         * may concentrate on grazing and avoiding predators, whereas a carnivore subclass would include hunting activities and interactions 
+         * with prey species. The intricacy and realism of the simulated animal behavior and ecological dynamics within the zoo are increased 
+         * by this approach. Furthermore, techniques for managing interactions between predators and prey may be implemented within the Zoo class 
+         * or within each animal subclass, facilitating dynamic interactions among different animal types within the simulation.
+         */
+        
     }    
 }   

@@ -5,8 +5,11 @@
 package zoosim;
 
 /**
- *
+ * ZooObjects class represents various objects within the zoo simulation.
+ * It implements the IObject interface.
+ * 
  * @author natew
+ * @version 1.0
  */
 public class ZooObjects implements IObject{
     private String type;
@@ -25,6 +28,12 @@ public class ZooObjects implements IObject{
         
     }
     
+    
+    /**
+     * Retrieves the size description of the object.
+     * 
+     * @return String representation of the object's size.
+     */
     public String getSize(){
         if (size >= 0 && size <= sizeVar.length){
             return sizeVar[size];
@@ -34,14 +43,22 @@ public class ZooObjects implements IObject{
         }
     }
     
+    /**
+     * Turns the object.
+     */
+
     @Override
     public void turn() {
         System.out.println("A " + type + " has turned " + turn + "degrees");
     }
 
+    /**
+     * Places the object.
+     */
     @Override
     public void place() {
         System.out.println("A " + getSize() + " " + type + " is at the coordinates (" + positionX + "," + positionY + ")");
     }
     
 }
+ 

@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *Animal class
  * @author natew
+ * @param: takes in objects using a param
+ * @return: uses methods to return a variable
  */
 public class Animal implements IEntity{
     private int iD;
@@ -49,7 +51,9 @@ public class Animal implements IEntity{
         return sex;
     }
     
-    
+    /**
+     * @return: String of speed
+     */
     public String getSpeed(){
         if (speed >= 0 && speed <= speedDesc.length){
             return speedDesc[speed];
@@ -80,7 +84,9 @@ public class Animal implements IEntity{
     }
     
     
-    
+    /**
+     * @return: returns a sound
+     */
     public void makeSound(){
         System.out.println(name + " makes sound: " + sound);
         incFatigue(1);
@@ -89,6 +95,9 @@ public class Animal implements IEntity{
         checkHunger();
     }
     
+    /**
+     * Moves the animal and updates fatigue and hunger levels.
+     */
     public void move(){
         System.out.println(name + " is " + getSpeed());
         incFatigue(2);
@@ -97,16 +106,25 @@ public class Animal implements IEntity{
         checkHunger();
     }
     
+    /**
+     * Simulates the animal eating and restores hunger level.
+     */
     public void eat(){
         System.out.println(name + "is eating... Hunger Restored.");
         decHunger();
     }   
     
+     /**
+     * Simulates the animal sleeping and restores fatigue level.
+     */
     public void sleep(){
         System.out.println(name + " is sleeping... Fatigue Restored.");
         decFatigue();
     }
     
+     /**
+     * Turns the animal and updates fatigue and hunger levels.
+     */
     public void turn(){
         System.out.println(name + " turned " + direction + "degrees");
         incFatigue(1);
@@ -144,6 +162,11 @@ public class Animal implements IEntity{
         }
     }
     
+    /**
+     * Feeds all hungry animals in the provided array.
+     * 
+     * @param animals An array of Animal objects.
+     */
     public static void feedAll(Animal[] animals){
         for (Animal animal : animals) {
             if (animal != null && animal.getHunger() > 0) {
@@ -153,6 +176,11 @@ public class Animal implements IEntity{
         
     }
     
+    /**
+     * Sends all fatigued animals to sleep in the provided array.
+     * 
+     * @param animals An array of Animal objects.
+     */
     public static void sleepAll(Animal[] animals){
         for (Animal animal : animals) {
             if (animal != null && animal.getFatigue() > 0) {
@@ -162,6 +190,11 @@ public class Animal implements IEntity{
         
     }
     
+    /**
+     * Moves all animals in the provided array.
+     * 
+     * @param animals An array of Animal objects.
+     */
     public static void moveAll(Animal[] animals) {
         for (Animal animal : animals) {
             if (animal != null) {
@@ -170,6 +203,11 @@ public class Animal implements IEntity{
         }
     }
     
+    /**
+     * Displays statistics for all animals in the provided array.
+     * 
+     * @param animals An array of Animal objects.
+     */
     public static void displayStat(Animal[] animals) {
         System.out.println("Zoo Statistics:");
 
